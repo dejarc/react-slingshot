@@ -16,7 +16,6 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - checkout
-      - run: npm i
       - restore_cache:
           keys:
             - "npm-packages"
@@ -27,12 +26,10 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - checkout
-      - run: npm i
       - restore_cache:
           keys:
             - "npm-packages"
-      - run: npm i
-      - run: npm run audit
+      - run: npm audit
 workflows:
   workflow:
     jobs:
